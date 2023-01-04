@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    background-color: #951a35;
+}
+
+
+
+
+.titulo {
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 80px;
+    letter-spacing: 4px;
+    color: white;
+    text-shadow: 1px 1px black;
+}
+
+.instrumentos {
+    height: 300px;
+
+}
+
+.button-align {
+    border-radius: 50px;
+    border: 5px solid gray;
+    height: 150px;
+    width: 150px;
+    position: relative;
+    top: 30%;
+    box-shadow: 1px 1px 10px white;
+    margin: 10px 20px 0 20px;
+
+}
+
+
+
+.button-crash {
+    top: 30%;
+    background: url('images/crash.png');
+}
+
+.button-kick {
+    background: url('images/kick.png');
+}
+
+.button-snare {
+    background: url('images/snare.png') center no-repeat;
+    background-size: cover;
+}
+
+.button-tom {
+    background: url('images/tom1.png') center no-repeat;
+    background-size: cover;
+}
+
+.button-tom-2 {
+    background: url('images/tom2.png') center no-repeat;
+    background-size: cover;
+}
+
+.button-tom-3 {
+    background: url('images/tom3.png') center no-repeat;
+    background-size: cover;
+}
+
+.button-tom-4 {
+    background: url('images/tom4.png') center no-repeat;
+    background-size: cover;
+}
+
+.KeyDown {
+    font-weight: bold;
+    font-size: 60px;
+    color: #951a35;
+    text-shadow: 2px 2px 2pX black;
+    text-align: center;
+    width: 100%;
+}
+
+.animation-color {
+    animation: color forwards 1s;
+}
+
+@keyframes color {
+    from {
+        color: #951a35;
+    }
+
+    to {
+        color: rgb(181, 177, 177);
+        text-shadow: 2px 2px 2px black;
+
+    }
+}
