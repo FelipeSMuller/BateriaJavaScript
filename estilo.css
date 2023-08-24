@@ -24,8 +24,10 @@ body {
 }
 
 .instrumentos {
-    height: 300px;
-
+    height: 300px;    
+}
+.instrumentos button:hover  {
+    cursor: pointer;
 }
 
 .button-align {
@@ -41,14 +43,13 @@ body {
 }
 
 
-
 .button-crash {
     top: 30%;
     background: url('images/crash.png');
 }
 
-.button-kick {
-    background: url('images/kick.png');
+.button-kick-bass {
+    background: url('images/kick-bass.png');
 }
 
 .button-snare {
@@ -56,23 +57,23 @@ body {
     background-size: cover;
 }
 
-.button-tom {
-    background: url('images/tom1.png') center no-repeat;
+.button-tom-1 {
+    background: url('images/tom-1.png') center no-repeat;
     background-size: cover;
 }
 
 .button-tom-2 {
-    background: url('images/tom2.png') center no-repeat;
+    background: url('images/tom-2.png') center no-repeat;
     background-size: cover;
 }
 
 .button-tom-3 {
-    background: url('images/tom3.png') center no-repeat;
+    background: url('images/tom-3.png') center no-repeat;
     background-size: cover;
 }
 
 .button-tom-4 {
-    background: url('images/tom4.png') center no-repeat;
+    background: url('images/tom-4.png') center no-repeat;
     background-size: cover;
 }
 

@@ -1,94 +1,105 @@
 
+/**
+ * All sounds and theirs specif durations
+ */
+let soundNames = {
+    'crash': 600,
+    'kick-bass': 600,
+    'snare':600,
+    'tom-1':600,
+    'tom-2':600,
+    'tom-3':600,
+    'tom-4':600
+}
+
+let sounds = {}
+
+window.onload = function() {
+    let buttons = document.querySelectorAll(".instrumentos button")
+    buttons.forEach((button,index)=>{
+        try {
+            let image = button.querySelector("h1")
+            //Get the soundName from classList
+            let soundName = button.classList[1].replace('button-', '')
+            image.setAttribute("sound", soundName)
+            image.setAttribute("soundDuration", soundNames[soundName])  
+            
+            //createSound for performance             
+            sounds[soundName] = new Audio(`sounds/${soundName}.mp3`)
+             
+            addClick(button,soundName)
+        } catch (error) {
+            console.log("Não foi encontrado o som para imagem especificada", error)
+        }
+        
+    })
+}
+
+function addClick(button,soundName) {
+    button.addEventListener('click', (event)=>{
+        playDrum(soundName)
+    })
+}
 
 document.addEventListener("keydown", (event) => {
     switch (event.key) {
         case 'q':
-        case 'Q':
-            let ButtonCrash = document.querySelectorAll("h1")[1];
-            ButtonCrash.classList.add("animation-color");
-
-            let crash = new Audio("sounds/crash.mp3");
-            crash.play();
-
-            setTimeout(function () {
-                ButtonCrash.classList.remove("animation-color");
-            }, 1000);
+        case 'Q':            
+            playDrum('crash')
             break;
 
         case 'w':
-        case 'W':
-            let ButtonKick = document.querySelectorAll("h1")[2];
-            ButtonKick.classList.add("animation-color")
-            let kickBass = new Audio("sounds/kick-bass.mp3");
-            kickBass.play();
-
-            setTimeout(function () {
-                ButtonKick.classList.remove("animation-color");
-            }, 1000);
+        case 'W':            
+            playDrum('kick-bass')
             break;
 
         case 'e':
-        case 'E':
-            let buttonSnare = document.querySelectorAll("h1")[3];
-            buttonSnare.classList.add("animation-color")
-            let snare = new Audio("sounds/snare.mp3");
-            snare.play();
-            setTimeout(function () {
-                buttonSnare.classList.remove("animation-color");
-            }, 1000);
-
+        case 'E':            
+            playDrum('snare')
             break;
 
         case 'r':
         case 'R':
-
-            let tom_1 = document.querySelectorAll("h1")[4];
-            tom_1.classList.add("animation-color");
-            let tom1 = new Audio("sounds/tom-1.mp3");
-            tom1.play();
-
-            setTimeout(function () {
-                tom_1.classList.remove("animation-color");
-            }, 1000);
+            playDrum('tom-1')
             break;
 
         case 't':
         case 'T':
-            let tom_2 = document.querySelectorAll("h1")[5];
-            tom_2.classList.add("animation-color");
-            let tom2 = new Audio("sounds/tom-2.mp3");
-            tom2.play();
-            setTimeout(function () {
-                tom_2.classList.remove("animation-color");
-            }, 1000);
-
+            playDrum('tom-2')
             break;
 
         case 'y':
         case 'Y':
-            let tom_3 = document.querySelectorAll("h1")[6];
-            tom_3.classList.add("animation-color")
-            let tom3 = new Audio("sounds/tom-3.mp3");
-            tom3.play();
-            setTimeout(function () {
-                tom_3.classList.remove("animation-color");
-            }, 1000);
+            playDrum('tom-3')
             break;
 
         case 'u':
-        case 'U':
-            let tom_4 = document.querySelectorAll("h1")[7];
-            tom_4.classList.add("animation-color")
-            let tom4 = new Audio("sounds/tom-4.mp3");
-            tom4.play();
-            setTimeout(function () {
-                tom_4.classList.remove("animation-color");
-            }, 1000);
+        case 'U':            
+            playDrum('tom-4')
             break;
         default:
-            console.log("Nenhum efeito foi específicado!!")
+            console.log("Nenhum efeito foi especificado!!")
     }
 });
 
 
+
+/**
+ * Play the correspondent instrument
+ * @param {number} drumIndex 
+ * @param {string} soundName 
+ */
+function playDrum(soundName) {
+    let image = document.querySelector(`h1[sound=${soundName}]`);
+    image.classList.add("animation-color")
+    let soundDuration =  parseInt(image.getAttribute("soundDuration"))
+    //let audio = new Audio(`sounds/${soundName}.mp3`)
+    let audio = sounds[soundName]
+    audio.play()
+
+    setTimeout(function () {
+        image.classList.remove("animation-color");        
+    }, soundDuration);
+
+}
 
