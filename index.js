@@ -93,12 +93,13 @@ function playDrum(soundName) {
     let image = document.querySelector(`h1[sound=${soundName}]`);
     image.classList.add("animation-color")
     let soundDuration =  parseInt(image.getAttribute("soundDuration"))
-    //let audio = new Audio(`sounds/${soundName}.mp3`)
-    let audio = sounds[soundName]
+    let audio = new Audio(`sounds/${soundName}.mp3`)
+    //let audio = sounds[soundName]
     audio.play()
 
     setTimeout(function () {
-        image.classList.remove("animation-color");        
+        image.classList.remove("animation-color");
+             
     }, soundDuration);
 
 }
